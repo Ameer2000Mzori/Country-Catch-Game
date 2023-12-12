@@ -18,7 +18,7 @@
 
 # 📖 About This Project <a name="about-project"></a>
 
-> GitHub Profiles A website built with HTML, SCSS, and TypeScript, utilizing the GitHub API and Axios for seamless data retrieval. Linters are employed to maintain clean code. Explore the live demo to search for any GitHub user.
+> Insect-Catch-Game is a website meticulously crafted using HTML, SCSS, and TypeScript. Our development process integrates linters to identify and address code errors, ensuring the maintenance of clean and efficient code. Feel free to take a moment to explore the live demo for a firsthand experience.
 
 # Sample Of Website <a name="Sample-Of-Website"></a>
 
