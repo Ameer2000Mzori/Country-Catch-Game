@@ -106,6 +106,25 @@ body {
   font-size: 15px;
 }
 
+.header .head .choice-Wrap .choice-Cards-Wrapper .Card #choice-Img {
+  height: 55px;
+}
+
+@media screen and (max-width: 768px) {
+  .header .head .choice-Wrap .choice-Cards-Wrapper .Card {
+    height: 110px;
+    width: 220px;
+    background-color: #ffecd6;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .header .head .choice-Wrap .choice-Cards-Wrapper .Card #choice-Img {
+    height: 25px;
+    margin: 5px;
+  }
+}
+
 .header .head .play-Wrap {
   display: flex;
   flex-direction: column;
@@ -143,7 +162,8 @@ body {
 
 .header .head .play-Wrap .play-Field .play-Img {
   position: absolute;
-  height: 100px;
+  height: 50px;
+  height: 35px;
   border-radius: 50%;
   left: 50px;
   top: 53px;

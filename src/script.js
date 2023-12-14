@@ -11,6 +11,8 @@ var playField = document.getElementsByClassName("play-Field")[0];
 // gelobal varibales
 var scoreCount = 0;
 var enemysCount = 0;
+var timeSec = 0;
+var timeMin = 0;
 // functions
 var startGame = function () {
     startWrap.style.transform = "translateY(-100%)";
@@ -29,9 +31,9 @@ var startPlaying = function (cardImg) {
     if (enemysCount <= 10) {
         setTimeout(function () {
             // creating random num for posation
-            var randNum1 = Math.floor(Math.random() * 90) + 5;
+            var randNum1 = Math.floor(Math.random() * 80) + 5;
             console.log(randNum1);
-            var randNum2 = Math.floor(Math.random() * 90) + 5;
+            var randNum2 = Math.floor(Math.random() * 80) + 5;
             console.log(randNum2);
             // creating and giving the random nums to the posations
             var enemyImg = document.createElement("img");
@@ -49,6 +51,7 @@ var startPlaying = function (cardImg) {
                     enemysCount--;
                     scoreCount++;
                     startPlaying(cardImg);
+                    playScore.textContent = "SCORE: ".concat(scoreCount);
                 }
                 console.log("this is enemys", enemysCount);
                 console.log("this is score", scoreCount);
@@ -56,9 +59,9 @@ var startPlaying = function (cardImg) {
         }, 1000);
         setTimeout(function () {
             // creating random num for posation
-            var randNum1 = Math.floor(Math.random() * 90) + 5;
+            var randNum1 = Math.floor(Math.random() * 80) + 5;
             console.log(randNum1);
-            var randNum2 = Math.floor(Math.random() * 90) + 5;
+            var randNum2 = Math.floor(Math.random() * 80) + 5;
             console.log(randNum2);
             // creating and giving the random nums to the posations
             var enemyImg = document.createElement("img");
@@ -76,6 +79,7 @@ var startPlaying = function (cardImg) {
                     enemysCount--;
                     startPlaying(cardImg);
                     scoreCount++;
+                    playScore.textContent = "SCORE: ".concat(scoreCount);
                 }
             });
             // calling the function again
@@ -87,6 +91,39 @@ var startPlaying = function (cardImg) {
         console.log("waiting until he kills a bug");
     }
 };
+// this is timer function
+var startTimer = function () {
+    timeSec++;
+    setTimeout(function () {
+        if (timeSec >= 60) {
+            timeSec = 1;
+            timeMin++;
+        }
+        if (timeSec <= 9 && timeMin <= 9) {
+            playTime.textContent = "0".concat(timeMin, ":0").concat(timeSec);
+        }
+        else if (timeSec > 9 && timeMin > 9) {
+            playTime.textContent = "".concat(timeMin, ":").concat(timeSec);
+        }
+        else if (timeSec > 9) {
+            if (timeMin > 9) {
+                playTime.textContent = "".concat(timeMin, ":").concat(timeSec);
+            }
+            else {
+                playTime.textContent = "0".concat(timeMin, ":").concat(timeSec);
+            }
+        }
+        else if (timeMin > 9) {
+            if (timeSec > 9) {
+                playTime.textContent = "".concat(timeMin, ":").concat(timeSec);
+            }
+            else {
+                playTime.textContent = "".concat(timeMin, ":0").concat(timeSec);
+            }
+        }
+        startTimer();
+    }, 1000);
+};
 // event lisnters
 startBtn.addEventListener("click", startGame);
 CardEl.forEach(function (card) {
@@ -94,5 +131,6 @@ CardEl.forEach(function (card) {
         var cardImg = card.lastChild.previousElementSibling.src;
         console.log(cardImg);
         choicedFly(cardImg);
+        startTimer();
     });
 });

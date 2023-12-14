@@ -12,6 +12,8 @@ const playField = document.getElementsByClassName("play-Field")[0];
 // gelobal varibales
 let scoreCount = 0;
 let enemysCount = 0;
+let timeSec = 0;
+let timeMin = 0;
 
 // functions
 const startGame = () => {
@@ -33,9 +35,9 @@ const startPlaying = (cardImg) => {
   if (enemysCount <= 10) {
     setTimeout(() => {
       // creating random num for posation
-      let randNum1 = Math.floor(Math.random() * 90) + 5;
+      let randNum1 = Math.floor(Math.random() * 80) + 5;
       console.log(randNum1);
-      let randNum2 = Math.floor(Math.random() * 90) + 5;
+      let randNum2 = Math.floor(Math.random() * 80) + 5;
       console.log(randNum2);
 
       // creating and giving the random nums to the posations
@@ -55,6 +57,7 @@ const startPlaying = (cardImg) => {
           enemysCount--;
           scoreCount++;
           startPlaying(cardImg);
+          playScore.textContent = `SCORE: ${scoreCount}`;
         }
         console.log(`this is enemys`, enemysCount);
         console.log(`this is score`, scoreCount);
@@ -63,9 +66,9 @@ const startPlaying = (cardImg) => {
 
     setTimeout(() => {
       // creating random num for posation
-      let randNum1 = Math.floor(Math.random() * 90) + 5;
+      let randNum1 = Math.floor(Math.random() * 80) + 5;
       console.log(randNum1);
-      let randNum2 = Math.floor(Math.random() * 90) + 5;
+      let randNum2 = Math.floor(Math.random() * 80) + 5;
       console.log(randNum2);
 
       // creating and giving the random nums to the posations
@@ -85,6 +88,7 @@ const startPlaying = (cardImg) => {
           enemysCount--;
           startPlaying(cardImg);
           scoreCount++;
+          playScore.textContent = `SCORE: ${scoreCount}`;
         }
       });
 
@@ -98,6 +102,37 @@ const startPlaying = (cardImg) => {
   }
 };
 
+// this is timer function
+const startTimer = () => {
+  timeSec++;
+
+  setTimeout(() => {
+    if (timeSec >= 60) {
+      timeSec = 1;
+      timeMin++;
+    }
+    if (timeSec <= 9 && timeMin <= 9) {
+      playTime.textContent = `0${timeMin}:0${timeSec}`;
+    } else if (timeSec > 9 && timeMin > 9) {
+      playTime.textContent = `${timeMin}:${timeSec}`;
+    } else if (timeSec > 9) {
+      if (timeMin > 9) {
+        playTime.textContent = `${timeMin}:${timeSec}`;
+      } else {
+        playTime.textContent = `0${timeMin}:${timeSec}`;
+      }
+    } else if (timeMin > 9) {
+      if (timeSec > 9) {
+        playTime.textContent = `${timeMin}:${timeSec}`;
+      } else {
+        playTime.textContent = `${timeMin}:0${timeSec}`;
+      }
+    }
+
+    startTimer();
+  }, 1000);
+};
+
 // event lisnters
 startBtn.addEventListener("click", startGame);
 
@@ -106,5 +141,7 @@ CardEl.forEach((card) => {
     let cardImg = card.lastChild.previousElementSibling.src;
     console.log(cardImg);
     choicedFly(cardImg);
+
+    startTimer();
   });
 });
