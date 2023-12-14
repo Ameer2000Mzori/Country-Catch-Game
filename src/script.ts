@@ -44,34 +44,55 @@ const startPlaying = (cardImg) => {
       enemyImg.src = `${cardImg}`;
       enemyImg.style.top = `${randNum1}%`;
       enemyImg.style.left = `${randNum2}%`;
-      console.log(enemyImg);
       playField.appendChild(enemyImg);
       console.log("hi");
       // increasing the enemys numbers
       enemysCount++;
-      setTimeout(() => {
-        // creating random num for posation
-        let randNum1 = Math.floor(Math.random() * 90) + 5;
-        console.log(randNum1);
-        let randNum2 = Math.floor(Math.random() * 90) + 5;
-        console.log(randNum2);
 
-        // creating and giving the random nums to the posations
-        const enemyImg = document.createElement("img");
-        enemyImg.classList.add("play-Img");
-        enemyImg.src = `${cardImg}`;
-        enemyImg.style.top = `${randNum1}%`;
-        enemyImg.style.left = `${randNum2}%`;
-        console.log(enemyImg);
-        playField.appendChild(enemyImg);
-        console.log("hi");
-        // increasing the enemys numbers
-        enemysCount++;
-
-        // calling the function again
-        startPlaying(cardImg);
-      }, 1000);
+      enemyImg.addEventListener("click", () => {
+        if (enemyImg) {
+          enemyImg.remove();
+          enemysCount--;
+          scoreCount++;
+          startPlaying(cardImg);
+        }
+        console.log(`this is enemys`, enemysCount);
+        console.log(`this is score`, scoreCount);
+      });
     }, 1000);
+
+    setTimeout(() => {
+      // creating random num for posation
+      let randNum1 = Math.floor(Math.random() * 90) + 5;
+      console.log(randNum1);
+      let randNum2 = Math.floor(Math.random() * 90) + 5;
+      console.log(randNum2);
+
+      // creating and giving the random nums to the posations
+      const enemyImg = document.createElement("img");
+      enemyImg.classList.add("play-Img");
+      enemyImg.src = `${cardImg}`;
+      enemyImg.style.top = `${randNum1}%`;
+      enemyImg.style.left = `${randNum2}%`;
+      playField.appendChild(enemyImg);
+      console.log("hi");
+      // increasing the enemys numbers
+      enemysCount++;
+
+      enemyImg.addEventListener("click", () => {
+        if (enemyImg) {
+          enemyImg.remove();
+          enemysCount--;
+          startPlaying(cardImg);
+          scoreCount++;
+        }
+      });
+
+      // calling the function again
+
+      console.log(`this is enemys`, enemysCount);
+      console.log(`this is score`, scoreCount);
+    }, 1200);
   } else {
     console.log("waiting until he kills a bug");
   }

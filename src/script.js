@@ -39,32 +39,49 @@ var startPlaying = function (cardImg) {
             enemyImg.src = "".concat(cardImg);
             enemyImg.style.top = "".concat(randNum1, "%");
             enemyImg.style.left = "".concat(randNum2, "%");
-            console.log(enemyImg);
             playField.appendChild(enemyImg);
             console.log("hi");
             // increasing the enemys numbers
             enemysCount++;
-            setTimeout(function () {
-                // creating random num for posation
-                var randNum1 = Math.floor(Math.random() * 90) + 5;
-                console.log(randNum1);
-                var randNum2 = Math.floor(Math.random() * 90) + 5;
-                console.log(randNum2);
-                // creating and giving the random nums to the posations
-                var enemyImg = document.createElement("img");
-                enemyImg.classList.add("play-Img");
-                enemyImg.src = "".concat(cardImg);
-                enemyImg.style.top = "".concat(randNum1, "%");
-                enemyImg.style.left = "".concat(randNum2, "%");
-                console.log(enemyImg);
-                playField.appendChild(enemyImg);
-                console.log("hi");
-                // increasing the enemys numbers
-                enemysCount++;
-                // calling the function again
-                startPlaying(cardImg);
-            }, 1000);
+            enemyImg.addEventListener("click", function () {
+                if (enemyImg) {
+                    enemyImg.remove();
+                    enemysCount--;
+                    scoreCount++;
+                    startPlaying(cardImg);
+                }
+                console.log("this is enemys", enemysCount);
+                console.log("this is score", scoreCount);
+            });
         }, 1000);
+        setTimeout(function () {
+            // creating random num for posation
+            var randNum1 = Math.floor(Math.random() * 90) + 5;
+            console.log(randNum1);
+            var randNum2 = Math.floor(Math.random() * 90) + 5;
+            console.log(randNum2);
+            // creating and giving the random nums to the posations
+            var enemyImg = document.createElement("img");
+            enemyImg.classList.add("play-Img");
+            enemyImg.src = "".concat(cardImg);
+            enemyImg.style.top = "".concat(randNum1, "%");
+            enemyImg.style.left = "".concat(randNum2, "%");
+            playField.appendChild(enemyImg);
+            console.log("hi");
+            // increasing the enemys numbers
+            enemysCount++;
+            enemyImg.addEventListener("click", function () {
+                if (enemyImg) {
+                    enemyImg.remove();
+                    enemysCount--;
+                    startPlaying(cardImg);
+                    scoreCount++;
+                }
+            });
+            // calling the function again
+            console.log("this is enemys", enemysCount);
+            console.log("this is score", scoreCount);
+        }, 1200);
     }
     else {
         console.log("waiting until he kills a bug");
