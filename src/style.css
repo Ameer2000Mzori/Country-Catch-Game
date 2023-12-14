@@ -37,6 +37,7 @@ body {
   background-color: #0f2167;
   color: #4cb9e7;
   transition: all 1s;
+  transform: translateY(-100%);
 }
 
 .header .head .start-Wrap .start-Text {
@@ -75,6 +76,34 @@ body {
   position: relative;
   justify-content: center;
   height: 100%;
-  transition: all 10s;
+  transition: all 1s;
   width: 100%;
+  transform: translateY(-100%);
+  background-color: #4cb9e7;
+  color: #0f2167;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 25px;
+}
+
+.header .head .choice-Wrap .choice-Text {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 25px;
+  width: 55%;
+}
+
+.header .head .choice-Wrap .choice-Cards-Wrapper {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.header .head .choice-Wrap .choice-Cards-Wrapper .Card {
+  height: 210px;
+  width: 220px;
+  background-color: #ffecd6;
+  cursor: pointer;
+  font-size: 15px;
 }

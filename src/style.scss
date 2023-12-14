@@ -43,6 +43,7 @@ body {
       background-color: $colorOne;
       color: $colorThree;
       transition: all 1s;
+      transform: translateY(-100%);
 
       .start-Text {
         font-family: $fontTwo;
@@ -81,15 +82,36 @@ body {
       position: relative;
       justify-content: center;
       height: 100%;
-      transition: all 10s;
+      transition: all 1s;
       width: 100%;
+      transform: translateY(-100%);
+      background-color: $colorThree;
+      color: $colorOne;
+      font-family: $fontTwo;
+      font-size: 25px;
+
+      .choice-Text {
+        font-family: $fontTwo;
+        font-size: 25px;
+        width: 55%;
+      }
+
+      .choice-Cards-Wrapper {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-evenly;
+        width: 50%;
+
+        .Card {
+          height: 210px;
+          width: 220px;
+          background-color: $colorFour;
+          cursor: pointer;
+          font-size: 15px;
+        }
+      }
     }
   }
-
-  // .start-Wrap:hover {
-  //   transform: translateY(-100%);
-  // }
-  // .choice-Wrap:hover {
-  //   transform: translateY(-100%);
-  // }
 }
