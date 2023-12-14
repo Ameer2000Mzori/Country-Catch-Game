@@ -37,7 +37,7 @@ body {
   background-color: #0f2167;
   color: #4cb9e7;
   transition: all 1s;
-  transform: translateY(-100%);
+  transform: translateY(-200%);
 }
 
 .header .head .start-Wrap .start-Text {
@@ -78,7 +78,7 @@ body {
   height: 100%;
   transition: all 1s;
   width: 100%;
-  transform: translateY(-100%);
+  transform: translateY(-200%);
   background-color: #4cb9e7;
   color: #0f2167;
   font-family: "Silkscreen", sans-serif;
@@ -106,4 +106,39 @@ body {
   background-color: #ffecd6;
   cursor: pointer;
   font-size: 15px;
+}
+
+.header .head .play-Wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: start;
+  position: relative;
+  justify-content: start;
+  height: 100%;
+  transition: all 1s;
+  width: 100%;
+  transform: translateY(-200%);
+  background-color: #4cb9e7;
+  color: #0f2167;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 15px;
+}
+
+.header .head .play-Wrap .time-Score-Wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 10%;
+  border: solid #ffecd6 5px;
+  border-left: none;
+  border-right: none;
+}
+
+.header .head .play-Wrap .play-Field {
+  width: 100%;
+  height: 90%;
+  background-color: #3559e0;
 }
