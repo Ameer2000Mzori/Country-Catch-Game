@@ -10,6 +10,7 @@ var playScore = document.getElementsByClassName("play-Score")[0];
 var playField = document.getElementsByClassName("play-Field")[0];
 // gelobal varibales
 var scoreCount = 0;
+var enemysCount = 0;
 // functions
 var startGame = function () {
     startWrap.style.transform = "translateY(-100%)";
@@ -24,11 +25,50 @@ var choicedFly = function (cardImg) {
 };
 // start playing function
 var startPlaying = function (cardImg) {
-    var enemyImg = document.createElement("img");
-    enemyImg.classList.add("play-Img");
-    enemyImg.src = "".concat(cardImg);
-    console.log(enemyImg);
-    playField.appendChild(enemyImg);
+    // checking if there is more then 20 enemys
+    if (enemysCount <= 10) {
+        setTimeout(function () {
+            // creating random num for posation
+            var randNum1 = Math.floor(Math.random() * 90) + 5;
+            console.log(randNum1);
+            var randNum2 = Math.floor(Math.random() * 90) + 5;
+            console.log(randNum2);
+            // creating and giving the random nums to the posations
+            var enemyImg = document.createElement("img");
+            enemyImg.classList.add("play-Img");
+            enemyImg.src = "".concat(cardImg);
+            enemyImg.style.top = "".concat(randNum1, "%");
+            enemyImg.style.left = "".concat(randNum2, "%");
+            console.log(enemyImg);
+            playField.appendChild(enemyImg);
+            console.log("hi");
+            // increasing the enemys numbers
+            enemysCount++;
+            setTimeout(function () {
+                // creating random num for posation
+                var randNum1 = Math.floor(Math.random() * 90) + 5;
+                console.log(randNum1);
+                var randNum2 = Math.floor(Math.random() * 90) + 5;
+                console.log(randNum2);
+                // creating and giving the random nums to the posations
+                var enemyImg = document.createElement("img");
+                enemyImg.classList.add("play-Img");
+                enemyImg.src = "".concat(cardImg);
+                enemyImg.style.top = "".concat(randNum1, "%");
+                enemyImg.style.left = "".concat(randNum2, "%");
+                console.log(enemyImg);
+                playField.appendChild(enemyImg);
+                console.log("hi");
+                // increasing the enemys numbers
+                enemysCount++;
+                // calling the function again
+                startPlaying(cardImg);
+            }, 1000);
+        }, 1000);
+    }
+    else {
+        console.log("waiting until he kills a bug");
+    }
 };
 // event lisnters
 startBtn.addEventListener("click", startGame);

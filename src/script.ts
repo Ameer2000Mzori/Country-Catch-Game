@@ -11,6 +11,7 @@ const playField = document.getElementsByClassName("play-Field")[0];
 
 // gelobal varibales
 let scoreCount = 0;
+let enemysCount = 0;
 
 // functions
 const startGame = () => {
@@ -28,11 +29,52 @@ const choicedFly = (cardImg) => {
 
 // start playing function
 const startPlaying = (cardImg) => {
-  const enemyImg = document.createElement("img");
-  enemyImg.classList.add("play-Img");
-  enemyImg.src = `${cardImg}`;
-  console.log(enemyImg);
-  playField.appendChild(enemyImg);
+  // checking if there is more then 20 enemys
+  if (enemysCount <= 10) {
+    setTimeout(() => {
+      // creating random num for posation
+      let randNum1 = Math.floor(Math.random() * 90) + 5;
+      console.log(randNum1);
+      let randNum2 = Math.floor(Math.random() * 90) + 5;
+      console.log(randNum2);
+
+      // creating and giving the random nums to the posations
+      const enemyImg = document.createElement("img");
+      enemyImg.classList.add("play-Img");
+      enemyImg.src = `${cardImg}`;
+      enemyImg.style.top = `${randNum1}%`;
+      enemyImg.style.left = `${randNum2}%`;
+      console.log(enemyImg);
+      playField.appendChild(enemyImg);
+      console.log("hi");
+      // increasing the enemys numbers
+      enemysCount++;
+      setTimeout(() => {
+        // creating random num for posation
+        let randNum1 = Math.floor(Math.random() * 90) + 5;
+        console.log(randNum1);
+        let randNum2 = Math.floor(Math.random() * 90) + 5;
+        console.log(randNum2);
+
+        // creating and giving the random nums to the posations
+        const enemyImg = document.createElement("img");
+        enemyImg.classList.add("play-Img");
+        enemyImg.src = `${cardImg}`;
+        enemyImg.style.top = `${randNum1}%`;
+        enemyImg.style.left = `${randNum2}%`;
+        console.log(enemyImg);
+        playField.appendChild(enemyImg);
+        console.log("hi");
+        // increasing the enemys numbers
+        enemysCount++;
+
+        // calling the function again
+        startPlaying(cardImg);
+      }, 1000);
+    }, 1000);
+  } else {
+    console.log("waiting until he kills a bug");
+  }
 };
 
 // event lisnters
