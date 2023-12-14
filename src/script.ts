@@ -23,8 +23,16 @@ const startGame = () => {
 const choicedFly = (cardImg) => {
   choiceWrap.style.transform = `translateY(-200%)`;
   playWrap.style.transform = `translateY(-200%)`;
+  startPlaying(cardImg);
+};
 
-  console.log(cardImg);
+// start playing function
+const startPlaying = (cardImg) => {
+  const enemyImg = document.createElement("img");
+  enemyImg.classList.add("play-Img");
+  enemyImg.src = `${cardImg}`;
+  console.log(enemyImg);
+  playField.appendChild(enemyImg);
 };
 
 // event lisnters
@@ -32,7 +40,8 @@ startBtn.addEventListener("click", startGame);
 
 CardEl.forEach((card) => {
   card.addEventListener("click", () => {
-    let cardImg = card.lastChild;
+    let cardImg = card.lastChild.previousElementSibling.src;
+    console.log(cardImg);
     choicedFly(cardImg);
   });
 });

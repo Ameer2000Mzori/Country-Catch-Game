@@ -20,13 +20,22 @@ var startGame = function () {
 var choicedFly = function (cardImg) {
     choiceWrap.style.transform = "translateY(-200%)";
     playWrap.style.transform = "translateY(-200%)";
-    console.log(cardImg);
+    startPlaying(cardImg);
+};
+// start playing function
+var startPlaying = function (cardImg) {
+    var enemyImg = document.createElement("img");
+    enemyImg.classList.add("play-Img");
+    enemyImg.src = "".concat(cardImg);
+    console.log(enemyImg);
+    playField.appendChild(enemyImg);
 };
 // event lisnters
 startBtn.addEventListener("click", startGame);
 CardEl.forEach(function (card) {
     card.addEventListener("click", function () {
-        var cardImg = card.lastChild;
+        var cardImg = card.lastChild.previousElementSibling.src;
+        console.log(cardImg);
         choicedFly(cardImg);
     });
 });
