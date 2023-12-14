@@ -162,9 +162,15 @@ body {
 
 .header .head .play-Wrap .play-Field .play-Img {
   position: absolute;
-  height: 50px;
-  height: 35px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   left: 50px;
   top: 53px;
+}
+
+@media screen and (max-width: 768px) {
+  .header .head .play-Wrap {
+    font-size: 11px;
+  }
 }
