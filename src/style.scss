@@ -43,7 +43,6 @@ body {
       background-color: $colorOne;
       color: $colorThree;
       transition: all 1s;
-      transform: translateY(-200%);
 
       .start-Text {
         font-family: $fontTwo;
@@ -84,7 +83,6 @@ body {
       height: 100%;
       transition: all 1s;
       width: 100%;
-      transform: translateY(-200%);
       background-color: $colorThree;
       color: $colorOne;
       font-family: $fontTwo;
@@ -124,7 +122,6 @@ body {
       height: 100%;
       transition: all 1s;
       width: 100%;
-      transform: translateY(-200%);
       background-color: $colorThree;
       color: $colorOne;
       font-family: $fontTwo;

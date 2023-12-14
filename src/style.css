@@ -37,7 +37,6 @@ body {
   background-color: #0f2167;
   color: #4cb9e7;
   transition: all 1s;
-  transform: translateY(-200%);
 }
 
 .header .head .start-Wrap .start-Text {
@@ -78,7 +77,6 @@ body {
   height: 100%;
   transition: all 1s;
   width: 100%;
-  transform: translateY(-200%);
   background-color: #4cb9e7;
   color: #0f2167;
   font-family: "Silkscreen", sans-serif;
@@ -118,7 +116,6 @@ body {
   height: 100%;
   transition: all 1s;
   width: 100%;
-  transform: translateY(-200%);
   background-color: #4cb9e7;
   color: #0f2167;
   font-family: "Silkscreen", sans-serif;
