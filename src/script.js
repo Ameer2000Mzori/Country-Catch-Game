@@ -9,14 +9,19 @@ var playTime = document.getElementsByClassName("play-Time")[0];
 var playScore = document.getElementsByClassName("play-Score")[0];
 var playField = document.getElementsByClassName("play-Field")[0];
 // gelobal varibales
+var scoreCount = 0;
 // functions
 var startGame = function () {
-    // transform: translateY(-200%);
     startWrap.style.transform = "translateY(-100%)";
     choiceWrap.style.transform = "translateY(-100%)";
+    playWrap.style.transform = "translateY(-100%)";
 };
 // after user choices a fly functions
-var choicedFly = function (cardImg) { };
+var choicedFly = function (cardImg) {
+    choiceWrap.style.transform = "translateY(-200%)";
+    playWrap.style.transform = "translateY(-200%)";
+    console.log(cardImg);
+};
 // event lisnters
 startBtn.addEventListener("click", startGame);
 CardEl.forEach(function (card) {

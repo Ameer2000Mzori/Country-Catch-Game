@@ -10,16 +10,22 @@ const playScore = document.getElementsByClassName("play-Score")[0];
 const playField = document.getElementsByClassName("play-Field")[0];
 
 // gelobal varibales
+let scoreCount = 0;
 
 // functions
 const startGame = () => {
-  // transform: translateY(-200%);
   startWrap.style.transform = `translateY(-100%)`;
   choiceWrap.style.transform = `translateY(-100%)`;
+  playWrap.style.transform = `translateY(-100%)`;
 };
 
 // after user choices a fly functions
-const choicedFly = (cardImg) => {};
+const choicedFly = (cardImg) => {
+  choiceWrap.style.transform = `translateY(-200%)`;
+  playWrap.style.transform = `translateY(-200%)`;
+
+  console.log(cardImg);
+};
 
 // event lisnters
 startBtn.addEventListener("click", startGame);
