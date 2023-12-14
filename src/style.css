@@ -4,3 +4,77 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.header {
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .head {
+  display: flex;
+  text-align: start;
+  align-items: start;
+  justify-content: flex-start;
+  width: 98%;
+  height: 98%;
+  flex-wrap: wrap;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.header .head .start-Wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #0f2167;
+  color: #4cb9e7;
+  transition: all 1s;
+}
+
+.header .head .start-Wrap .start-Text {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+}
+
+.header .head .start-Wrap .start-Btn {
+  width: 250px;
+  height: 40px;
+  border-radius: 1rem;
+  border: solid #4cb9e7 5px;
+  background-color: #0f2167;
+  color: #4cb9e7;
+  font-size: 25px;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.header .head .start-Wrap .start-Btn:hover {
+  transform: scale(1.1);
+  background-color: #3559e0;
+}
+
+.header .head .start-Wrap .start-Btn:active {
+  transform: scale(0.9);
+}
+
+.header .head .choice-Wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+  transition: all 10s;
+  width: 100%;
+}
